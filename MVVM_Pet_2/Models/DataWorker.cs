@@ -2,11 +2,16 @@
 using MVVM_Pet_2.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Drawing;
 using System.IO.Packaging;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Documents;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MVVM_Pet_2.Models
 {
@@ -41,6 +46,8 @@ namespace MVVM_Pet_2.Models
                 return result;
             }
         }
+
+
         public static string DeletePet(Pet pet)
         {
             string result = "Питомец не найден. Удаление не выполнено.";
@@ -59,6 +66,8 @@ namespace MVVM_Pet_2.Models
             }
             return result;
         }
+
+
         public static string EditPet(Pet oldPet, string passport, string name, string type, DateTime dateOfBirth, int age, string breed, string color, string info, Client client)
         {
             string result = "Питомец не найден. Редактирование не выполнено.";
@@ -89,11 +98,14 @@ namespace MVVM_Pet_2.Models
             }
             return result;
         }
+
+
         public static List<Pet> GetAllPets()
         {
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
             {
                 var result = db.Pets.ToList();
+
                 return result;
             }
         }
@@ -101,7 +113,7 @@ namespace MVVM_Pet_2.Models
         #endregion
 
         #region MethodsForClient
-        public static string CreateClient(string name, string phone, string email, string address, string info)
+        public static string CreateClient(string name, string phone, string email, string address, string info, int petId, List<Pet> pets)
         {
             string result = "Уже существует";
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
@@ -115,15 +127,19 @@ namespace MVVM_Pet_2.Models
                         Phone = phone,
                         Email = email,
                         Address = address,
-                        Info = info
+                        Info = info,
+                        PetId = petId,
+                        Pets = pets
                     };
                     db.Clients.Add(client);
                     db.SaveChanges();
+
                     result = "Добавлено!";
                 }
                 return result;
             }
         }
+
 
         public static string DeleteClient(Client client)
         {
@@ -137,20 +153,32 @@ namespace MVVM_Pet_2.Models
             return result;
         }
 
-        public static string EditClient(Client oldClient, string newPhone, string newAddress, string newInfo)
+
+        public static string EditClient(Client oldClient, string name, string phone, string email, string address, string info, int petId, List<Pet> pets)
         {
             string result = "Клиент не найден. Редактирование не выполнено.";
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
             {
-                Client client = db.Clients.FirstOrDefault(d => d.Id == oldClient.Id);
-                client.Info = newPhone;
-                client.Address = newAddress;
-                client.Info = newInfo;
-                db.SaveChanges();
-                result = $"Клиент {client.FullName} изменен.";
+                try
+                {
+                    Client client = db.Clients.FirstOrDefault(d => d.Id == oldClient.Id);
+                    client.FullName = name;
+                    client.Phone = phone;
+                    client.Email = email;
+                    client.Address = address;
+                    client.Info = info;
+                    client.PetId = petId;
+                    client.Pets = pets;
+
+                    db.SaveChanges();
+                    result = $"Клиент {client.FullName} изменен.";
+                }
+                catch { return result; }
             }
             return result;
         }
+
+
         public static List<Client> GetAllClients()
         {
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
@@ -159,13 +187,17 @@ namespace MVVM_Pet_2.Models
                 return result;
             }
         }
+
         #endregion
 
-        public static void ShowMessageToPet(string message)
+
+        public static void ShowMessage(string message)
         {
             MessageView messageView = new MessageView(message);
             SetCenterPositionAndOpen(messageView);
         }
+
+
         public static void SetCenterPositionAndOpen(Window window)
         {
             window.Owner = Application.Current.MainWindow;

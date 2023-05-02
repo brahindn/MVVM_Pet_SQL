@@ -183,22 +183,20 @@
     <Compile Include="Models\DataWorker.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\VetClinic_DB_MsSQLContext.cs" />
+    <Compile Include="ViewModel\AddEditClientWindowViewModel.cs" />
     <Compile Include="ViewModel\AddEditPetWindowViewModel.cs" />
     <Compile Include="ViewModel\ClientsWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\PetsWindowViewModel.cs" />
+    <Compile Include="View\AddEditClientWindow.xaml.cs">
+      <DependentUpon>AddEditClientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddEditPetWindow.xaml.cs">
       <DependentUpon>AddEditPetWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddNewClientWindow.xaml.cs">
-      <DependentUpon>AddNewClientWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ClientsWindow.xaml.cs">
       <DependentUpon>ClientsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditClientWindow.xaml.cs">
-      <DependentUpon>EditClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MessageView.xaml.cs">
       <DependentUpon>MessageView.xaml</DependentUpon>
@@ -206,19 +204,15 @@
     <Compile Include="View\PetsWindow.xaml.cs">
       <DependentUpon>PetsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AddEditClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddEditPetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddNewClientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ClientsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

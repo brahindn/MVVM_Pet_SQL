@@ -1,7 +1,9 @@
-﻿using MVVM_Pet_2.Core;
+﻿using Microsoft.EntityFrameworkCore.Query.Internal;
+using MVVM_Pet_2.Core;
 using MVVM_Pet_2.Models;
 using MVVM_Pet_2.View;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -20,11 +22,9 @@ using System.Windows.Media;
 
 namespace MVVM_Pet_2.ViewModel
 {
-    internal class PetsWindowViewModel:ObservableObject
+    internal class PetsWindowViewModel: ObservableObject
     {
         private List<Pet> allPets = DataWorker.GetAllPets();
-
-        private Pet selectedPet;
         public List<Pet> AllPets
         {
             get { return allPets; }
@@ -34,6 +34,9 @@ namespace MVVM_Pet_2.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        
+
+        private Pet selectedPet;
         public Pet SelectedPet
         {
             get { return selectedPet; }
@@ -42,7 +45,9 @@ namespace MVVM_Pet_2.ViewModel
                 selectedPet = value;
                 NotifyPropertyChanged();
             }
-        } 
+        }
+
+
         private void OpenAddEditPetWindow()
         {
             AddEditPetWindow window = new AddEditPetWindow();
@@ -52,7 +57,6 @@ namespace MVVM_Pet_2.ViewModel
             window.editButton.IsEnabled = false;
             DataWorker.SetCenterPositionAndOpen(window);
         }
-
         private void OpenAddEditPetWindow(Pet pet)
         {
             AddEditPetWindow window = new AddEditPetWindow();
@@ -62,6 +66,7 @@ namespace MVVM_Pet_2.ViewModel
             window.createButton.IsEnabled = false;
             DataWorker.SetCenterPositionAndOpen(window);
         }
+
 
         #region PET WINDOW COMMANDS
 
@@ -78,6 +83,8 @@ namespace MVVM_Pet_2.ViewModel
                 });
             }
         }
+
+
         private RelayCommand openEditPetWindowCommand;
         public RelayCommand OpenEditPetWindowCommand
         {
@@ -92,6 +99,8 @@ namespace MVVM_Pet_2.ViewModel
             }
         }
 
+
+
         private RelayCommand deletePetCommand;
         public RelayCommand DeletePetCommand
         {
@@ -104,13 +113,13 @@ namespace MVVM_Pet_2.ViewModel
                     try
                     {
                         result = DataWorker.DeletePet(SelectedPet);
-                        DataWorker.ShowMessageToPet(result);
+                        DataWorker.ShowMessage(result);
 
                         AllPets = DataWorker.GetAllPets();
                     }
                     catch
                     {
-                        DataWorker.ShowMessageToPet(result);
+                        DataWorker.ShowMessage(result);
                     }
                 });
             }

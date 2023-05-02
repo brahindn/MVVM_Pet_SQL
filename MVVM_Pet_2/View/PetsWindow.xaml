@@ -37,7 +37,7 @@
         <Canvas Grid.Row="0">
             <Label Content="Наши любимцы" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
         </Canvas>
-        <ListView Name="ViewAllPets" SelectedItem="{Binding SelectedPet}" Grid.Row="1" Margin="5"
+        <ListView SelectedItem="{Binding SelectedPet}" Grid.Row="1" Margin="5"
                   ItemsSource="{Binding AllPets, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>

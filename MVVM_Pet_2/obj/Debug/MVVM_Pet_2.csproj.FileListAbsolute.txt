@@ -99,12 +99,10 @@ C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\MVVM_Pet_2.exe
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\MVVM_Pet_2.pdb
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\ClientsWindow.g.cs
-C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\EditClientWindow.g.cs
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\ClientsWindow.baml
-C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\EditClientWindow.baml
-C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddNewClientWindow.g.cs
-C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddNewClientWindow.baml
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\MessageView.g.cs
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\MessageView.baml
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditPetWindow.g.cs
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditPetWindow.baml
+C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditClientWindow.g.cs
+C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditClientWindow.baml

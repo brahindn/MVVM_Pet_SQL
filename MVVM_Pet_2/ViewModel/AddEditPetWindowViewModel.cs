@@ -29,8 +29,9 @@ namespace MVVM_Pet_2.ViewModel
         #endregion
 
         public Pet currentPet;
-
         internal Action Close;
+
+
         public AddEditPetWindowViewModel() {}
         public AddEditPetWindowViewModel(Pet selectedPet)
         {
@@ -50,6 +51,7 @@ namespace MVVM_Pet_2.ViewModel
             }
         }
 
+
         private RelayCommand createPetCommand;
         public RelayCommand CreatePetCommand
         {
@@ -61,11 +63,13 @@ namespace MVVM_Pet_2.ViewModel
 
                     resultStr = DataWorker.CreatePet(PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo, PetClient);
                     
-                    DataWorker.ShowMessageToPet(resultStr);
+                    DataWorker.ShowMessage(resultStr);
                     Close();
                 });
             }
         }
+
+
 
         private RelayCommand editPetCommand;
         public RelayCommand EditPetCommand
@@ -77,7 +81,7 @@ namespace MVVM_Pet_2.ViewModel
                     string resultStr = "";
 
                     resultStr = DataWorker.EditPet(currentPet, PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo, PetClient);
-                    DataWorker.ShowMessageToPet(resultStr);
+                    DataWorker.ShowMessage(resultStr);
 
                     Close();
                 });

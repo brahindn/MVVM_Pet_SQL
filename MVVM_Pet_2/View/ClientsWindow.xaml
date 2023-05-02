@@ -4,9 +4,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM_Pet_2.View"
+        xmlns:vm="clr-namespace:MVVM_Pet_2.ViewModel"
         mc:Ignorable="d"
-        Title="ClientsWindow" Height="450" Width="800">
+        Title="PetsWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Background" Value="CornflowerBlue"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:ClientsWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Фильтр" Margin="5"/>
+            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5"/>
+            <Button Content="Создать" Margin="5" Command="{Binding OpenCreateClientWindowCommand}"/>
+            <Button Content="Редактировать" Margin="5" Command="{Binding OpenEditClientWindowCommand}"/>
+            <Button Content="Удалить" Margin="5" Command="{Binding DeleteClientCommand}"/>
+        </StackPanel>
+        <Canvas Grid.Row="0">
+            <Label Content="Клиенты" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
+        </Canvas>
+        <ListView SelectedItem="{Binding SelectedClient}" Grid.Row="1" Margin="5"
+                  ItemsSource="{Binding AllClients, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="auto"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Path=FullName}" Width="100"/>
+                    <GridViewColumn Header="№ телефона" DisplayMemberBinding="{Binding Path=Phone}" Width="100"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" Width="80"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=Address}" Width="auto"/>
+                    <GridViewColumn Header="PetId" DisplayMemberBinding="{Binding Path=PetId}" Width="auto"/>
+                    <GridViewColumn Header="Доп.информация" DisplayMemberBinding="{Binding Path=Info}" Width="300"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

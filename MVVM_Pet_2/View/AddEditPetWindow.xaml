@@ -49,7 +49,7 @@
             <TextBox Text="{Binding PetInfo}" Style="{x:Null}" Margin="5" Width="260" HorizontalAlignment="Left" Height="100"/>
         </StackPanel>
         <Canvas Grid.Column="1">
-            <Button x:Name="createButton" Content="Создать" IsDefault="True" Command="{Binding CreatePetCommand}" CommandParameter="{Binding ElementName=AddEditPetWindow}" Width="50" Canvas.Bottom="10" Canvas.Right="165"/>
+            <Button x:Name="createButton" Content="Создать" IsDefault="True" Command="{Binding CreatePetCommand}" CommandParameter="{Binding ElementName=addEditPetWindow}" Width="50" Canvas.Bottom="10" Canvas.Right="165"/>
             <Button x:Name="editButton" Content="Редактировать" Command="{Binding EditPetCommand}" CommandParameter="{Binding ElementName=addEditPetWindow}" Width="85" Canvas.Bottom="10" Canvas.Right="70"/>
             <Button Content="Отмена" IsCancel="True" Width="50" Canvas.Bottom="10" Canvas.Right="10"/>
         </Canvas>
