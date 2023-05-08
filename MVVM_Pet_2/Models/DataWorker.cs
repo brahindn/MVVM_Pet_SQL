@@ -110,6 +110,23 @@ namespace MVVM_Pet_2.Models
             }
         }
 
+
+        public static List<Pet> FilterPet(string str)
+        {
+            using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
+            {
+                var newList = new List<Pet>();
+                var result = db.Pets.ToList();
+
+                foreach (var pet in result)
+                {
+                    if (pet.PetName.IndexOf(str, StringComparison.CurrentCultureIgnoreCase) != -1)
+                        newList.Add(pet);
+                }
+                return newList;
+            }
+        }
+
         #endregion
 
         #region MethodsForClient
@@ -185,6 +202,22 @@ namespace MVVM_Pet_2.Models
             {
                 var result = db.Clients.ToList();
                 return result;
+            }
+        }
+
+        public static List<Client> FilterClient(string str)
+        {
+            using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
+            {
+                var newList = new List<Client>();
+                var result = db.Clients.ToList();
+
+                foreach (var client in result)
+                {
+                    if (client.FullName.IndexOf(str, StringComparison.CurrentCultureIgnoreCase) != -1)
+                        newList.Add(client);
+                }
+                return newList;
             }
         }
 

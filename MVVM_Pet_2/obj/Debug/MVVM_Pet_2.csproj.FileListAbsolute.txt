@@ -106,3 +106,5 @@ C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditPetWi
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditPetWindow.baml
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditClientWindow.g.cs
 C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\obj\Debug\View\AddEditClientWindow.baml
+C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\bin\Debug\log4net.dll
+C:\Users\Деня\source\repos\MVVM_Pet_2\MVVM_Pet_2\bin\Debug\log4net.xml

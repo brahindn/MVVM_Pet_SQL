@@ -28,16 +28,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Фильтр" Margin="5"/>
+            <TextBlock Text="Фільтр" Margin="5"/>
             <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5"/>
-            <Button Content="Создать" Margin="5" Command="{Binding OpenCreatePetWindowCommand}"/>
-            <Button Content="Редактировать" Margin="5" Command="{Binding OpenEditPetWindowCommand}"/>
-            <Button Content="Удалить" Margin="5" Command="{Binding DeletePetCommand}"/>
+            <Button Content="Новий" Margin="5" Command="{Binding OpenCreatePetWindowCommand}"/>
+            <Button Content="Редагувати" Margin="5" Command="{Binding OpenEditPetWindowCommand}"/>
+            <Button Content="Видалити" Margin="5" Command="{Binding DeletePetCommand}"/>
         </StackPanel>
         <Canvas Grid.Row="0">
-            <Label Content="Наши любимцы" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
+            <Label Content="Наші улюбленці" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
         </Canvas>
-        <ListView SelectedItem="{Binding SelectedPet}" Grid.Row="1" Margin="5"
+        <ListView x:Name="listViewPets" SelectedItem="{Binding SelectedPet}" Grid.Row="1" Margin="5"
                   ItemsSource="{Binding AllPets, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
@@ -45,12 +45,12 @@
                     <GridViewColumn Header="№ Паспорта" DisplayMemberBinding="{Binding Path=Passport}" Width="100"/>
                     <GridViewColumn Header="Кличка" DisplayMemberBinding="{Binding Path=PetName}" Width="100"/>
                     <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding Path=PetType}" Width="80"/>
-                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd/MM/yy'}" Width="auto"/>
-                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Path=Age}" Width="auto"/>
+                    <GridViewColumn Header="Дата народження" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd/MM/yy'}" Width="auto"/>
+                    <GridViewColumn Header="Вік" DisplayMemberBinding="{Binding Path=Age}" Width="auto"/>
                     <GridViewColumn Header="Порода" DisplayMemberBinding="{Binding Path=Breed}" Width="150"/>
-                    <GridViewColumn Header="Цвет" DisplayMemberBinding="{Binding Path=Color}" Width="100"/>
-                    <GridViewColumn Header="Клиент" DisplayMemberBinding="{Binding Path=Client}" Width="100"/>
-                    <GridViewColumn Header="Доп.Информация" DisplayMemberBinding="{Binding Path=Info}" Width="auto"/>
+                    <GridViewColumn Header="Колір" DisplayMemberBinding="{Binding Path=Color}" Width="100"/>
+                    <GridViewColumn Header="Клієнт" DisplayMemberBinding="{Binding Path=Client}" Width="100"/>
+                    <GridViewColumn Header="Доп.інформація" DisplayMemberBinding="{Binding Path=Info}" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>

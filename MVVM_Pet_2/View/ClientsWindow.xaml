@@ -29,26 +29,26 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Фильтр" Margin="5"/>
+            <TextBlock Text="Фільтр" Margin="5"/>
             <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="5"/>
-            <Button Content="Создать" Margin="5" Command="{Binding OpenCreateClientWindowCommand}"/>
-            <Button Content="Редактировать" Margin="5" Command="{Binding OpenEditClientWindowCommand}"/>
-            <Button Content="Удалить" Margin="5" Command="{Binding DeleteClientCommand}"/>
+            <Button Content="Новий" Margin="5" Command="{Binding OpenCreateClientWindowCommand}"/>
+            <Button Content="Редагувати" Margin="5" Command="{Binding OpenEditClientWindowCommand}"/>
+            <Button Content="Видалити" Margin="5" Command="{Binding DeleteClientCommand}"/>
         </StackPanel>
         <Canvas Grid.Row="0">
-            <Label Content="Клиенты" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
+            <Label Content="Клієнты" FontStyle="Italic" FontWeight="Bold" Canvas.Right="5" Canvas.Top="0"/>
         </Canvas>
         <ListView SelectedItem="{Binding SelectedClient}" Grid.Row="1" Margin="5"
                   ItemsSource="{Binding AllClients, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="auto"/>
-                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Path=FullName}" Width="100"/>
-                    <GridViewColumn Header="№ телефона" DisplayMemberBinding="{Binding Path=Phone}" Width="100"/>
-                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" Width="80"/>
-                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=Address}" Width="auto"/>
+                    <GridViewColumn Header="ПІБ" DisplayMemberBinding="{Binding Path=FullName}" Width="auto"/>
+                    <GridViewColumn Header="№ телефона" DisplayMemberBinding="{Binding Path=Phone}" Width="auto"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" Width="auto"/>
+                    <GridViewColumn Header="Адреса" DisplayMemberBinding="{Binding Path=Address}" Width="200"/>
                     <GridViewColumn Header="PetId" DisplayMemberBinding="{Binding Path=PetId}" Width="auto"/>
-                    <GridViewColumn Header="Доп.информация" DisplayMemberBinding="{Binding Path=Info}" Width="300"/>
+                    <GridViewColumn Header="Доп.інформація" DisplayMemberBinding="{Binding Path=Info}" Width="300"/>
                 </GridView>
             </ListView.View>
         </ListView>

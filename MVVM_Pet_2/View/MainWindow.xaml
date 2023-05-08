@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM_Pet_2"
   
-        Title="MainWindow" Height="250" Width="400">
+        Title="MainWindow" Height="250" Width="300" WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <Grid Background="Cyan">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -17,13 +17,17 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Command="{Binding OpenPetsWindow}" Content="Показать питомцев" Height="50" Margin="3"/>
-        <Button Grid.Column="1" Command="{Binding OpenClientsWindow}" Content="Показать клиентов" Height="50" Margin="3"/>
+        <Button Grid.Column="0" IsEnabled="{Binding ButtonPetsIsEnabled}" Command="{Binding OpenPetsWindow}" Content="Таблиця тваринок" Height="50" Margin="3"/>
+        <Button Grid.Column="1" IsEnabled="{Binding ButtonClientsIsEnabled}" Command="{Binding OpenClientsWindow}" Content="Таблиця клієнтів" Height="50" Margin="3"/>
 
-        
-        <Image Grid.ColumnSpan="2" Grid.Row="1">
+        <StackPanel Grid.Row="1" Width="200" Grid.ColumnSpan="2" Margin="10 20 10 10">
+            <TextBlock Text="Логін" Margin="3"/>
+            <TextBox Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+            <TextBlock Text="Пароль" Margin="3"/>
+            <PasswordBox Name="PasswordBox" Margin="3"/>
+            <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBox}" IsDefault="True" Margin="10" Content="Вхід" Width="80"/>
+        </StackPanel>
 
-        </Image>
 
     </Grid>
 </Window>

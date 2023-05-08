@@ -25,6 +25,19 @@ namespace MVVM_Pet_2.ViewModel
         }
 
 
+        private string filterText;
+        public string FilterText
+        {
+            get { return filterText; }
+            set
+            {
+                filterText = value;
+                NotifyPropertyChanged();
+                AllClients = DataWorker.FilterClient(filterText);
+            }
+        }
+
+
         private Client selectedClient;
         public Client SelectedClient
         {

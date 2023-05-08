@@ -11,6 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.DesignerServices;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,24 @@ namespace MVVM_Pet_2.ViewModel
 {
     internal class PetsWindowViewModel: ObservableObject
     {
+        public PetsWindowViewModel()
+        {
+            
+        }
+
+        private string filterText;
+        public string FilterText
+        {
+            get { return filterText; }
+            set
+            {
+                filterText = value;
+                NotifyPropertyChanged();
+                AllPets = DataWorker.FilterPet(filterText);
+            }
+        }
+
+
         private List<Pet> allPets = DataWorker.GetAllPets();
         public List<Pet> AllPets
         {

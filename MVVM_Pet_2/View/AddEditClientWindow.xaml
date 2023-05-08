@@ -44,9 +44,9 @@
             <TextBox Text="{Binding Info}" Style="{x:Null}" Margin="5" Width="260" HorizontalAlignment="Left" Height="100"/>
         </StackPanel>
         <Canvas Grid.Column="1">
-            <Button x:Name="createButton" Content="Создать" IsDefault="True" Command="{Binding CreateClientCommand}" CommandParameter="{Binding ElementName=addEditClientWindow}" Width="50" Canvas.Bottom="10" Canvas.Right="165"/>
-            <Button x:Name="editButton" Content="Редактировать" Command="{Binding EditClientCommand}" CommandParameter="{Binding ElementName=addEditClientWindow}" Width="85" Canvas.Bottom="10" Canvas.Right="70"/>
-            <Button Content="Отмена" IsCancel="True" Width="50" Canvas.Bottom="10" Canvas.Right="10"/>
+            <Button x:Name="createButton" Content="Створити" IsDefault="True" Command="{Binding CreateClientCommand}" CommandParameter="{Binding ElementName=addEditClientWindow}" Width="60" Canvas.Bottom="10" Canvas.Right="165"/>
+            <Button x:Name="editButton" Content="Редагувати" Command="{Binding EditClientCommand}" CommandParameter="{Binding ElementName=addEditClientWindow}" Width="85" Canvas.Bottom="10" Canvas.Right="70"/>
+            <Button Content="Відміна" IsCancel="True" Width="50" Canvas.Bottom="10" Canvas.Right="10"/>
         </Canvas>
     </Grid>
 </Window>
