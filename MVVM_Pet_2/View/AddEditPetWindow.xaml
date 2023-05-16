@@ -11,6 +11,7 @@
     <Window.DataContext>
         <vm:AddEditPetWindowViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="5"/>
@@ -22,6 +23,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
     </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -41,7 +43,12 @@
             <TextBox Text="{Binding PetPassport}"/>
             <TextBox Text="{Binding PetName}"/>
             <TextBox Text="{Binding PetType}"/>
-            <TextBox Text="{Binding PetDateOfBirth, StringFormat='dd/MM/yy'}"/>
+               
+            <!--<TextBox Text="{Binding PetDateOfBirth, StringFormat='dd/MM/yy'}"/>-->
+            <DatePicker SelectedDate="{Binding PetDateOfBirth}" Margin="4 0 4 4" 
+                        HorizontalAlignment="Left" Width="260"
+                        SelectedDateFormat="Short" DisplayDate="12/01/2015" DisplayDateStart="12/01/2015"/>
+
             <TextBox Text="{Binding PetAge}"/>
             <TextBox Text="{Binding PetBreed}"/>
             <TextBox Text="{Binding PetColor}"/>

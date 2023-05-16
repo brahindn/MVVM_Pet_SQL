@@ -40,7 +40,7 @@
                     <GridViewColumn Header="№ Паспорта" DisplayMemberBinding="{Binding Path=Passport}" Width="100"/>
                     <GridViewColumn Header="Кличка" DisplayMemberBinding="{Binding Path=PetName}" Width="100"/>
                     <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding Path=PetType}" Width="80"/>
-                    <GridViewColumn Header="Дата народження" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd/MM/yy'}" Width="auto"/>
+                    <GridViewColumn Header="Дата народження" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}" Width="auto"/>
                     <GridViewColumn Header="Вік" DisplayMemberBinding="{Binding Path=Age}" Width="auto"/>
                     <GridViewColumn Header="Порода" DisplayMemberBinding="{Binding Path=Breed}" Width="150"/>
                     <GridViewColumn Header="Колір" DisplayMemberBinding="{Binding Path=Color}" Width="100"/>
