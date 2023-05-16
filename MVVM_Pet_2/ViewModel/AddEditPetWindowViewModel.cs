@@ -25,7 +25,6 @@ namespace MVVM_Pet_2.ViewModel
         public string PetBreed { get; set; }
         public string PetColor { get; set; }
         public string PetInfo { get; set; }
-        public Client PetClient { get; set; }
         #endregion
 
         public Pet currentPet;
@@ -47,7 +46,6 @@ namespace MVVM_Pet_2.ViewModel
                 PetBreed = currentPet.Breed;    
                 PetColor = currentPet.Color;
                 PetInfo = currentPet.Info;
-                PetClient = currentPet.Client;
             }
         }
 
@@ -61,7 +59,7 @@ namespace MVVM_Pet_2.ViewModel
                 {
                     string resultStr = "";
 
-                    resultStr = DataWorker.CreatePet(PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo, PetClient);
+                    resultStr = DataWorker.CreatePet(PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo);
                     
                     DataWorker.ShowMessage(resultStr);
                     Close();
@@ -80,7 +78,7 @@ namespace MVVM_Pet_2.ViewModel
                 {
                     string resultStr = "";
 
-                    resultStr = DataWorker.EditPet(currentPet, PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo, PetClient);
+                    resultStr = DataWorker.EditPet(currentPet, PetPassport, PetName, PetType, PetDateOfBirth, PetAge, PetBreed, PetColor, PetInfo);
                     DataWorker.ShowMessage(resultStr);
 
                     Close();

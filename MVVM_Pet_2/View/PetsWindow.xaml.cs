@@ -24,6 +24,7 @@ namespace MVVM_Pet_2.View
         public PetsWindow()
         {
             InitializeComponent();
+            DataContext = new PetsWindowViewModel();
         }
     }
 }

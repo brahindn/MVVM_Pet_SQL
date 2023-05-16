@@ -18,6 +18,5 @@ namespace MVVM_Pet_2
         public string Breed { get; set; }
         public string Color { get; set; }
         public string Info { get; set; }
-        public Client Client { get; set; }
     }
 }

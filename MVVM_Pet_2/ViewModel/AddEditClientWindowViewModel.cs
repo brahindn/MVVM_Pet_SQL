@@ -2,6 +2,7 @@
 using MVVM_Pet_2.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -10,27 +11,34 @@ using System.Threading.Tasks;
 
 namespace MVVM_Pet_2.ViewModel
 {
-    internal class AddEditClientWindowViewModel
+    internal class AddEditClientWindowViewModel:ObservableObject
     {
             #region FieldsOfForm
-            public int Id { get; set; }
-            public string FullName { get; set; }
-            public string Phone { get; set; }
-            public string Email { get; set; }
-            public string Address { get; set; }
-            public string Info { get; set; }
-            public int PetId { get; set; }
-            public List<Pet> Pets { get; set; }
-            #endregion
+        public int Id { get; set; }
+        public string FullName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Info { get; set; }
+        public int PetId { get; set; }
+        public Pet selectedPet { get; set; }
 
-            public Client currentClient;
+        public List<Pet> Pets { get; set; }
+        #endregion
 
-            internal Action Close;
-            public AddEditClientWindowViewModel() { }
-            public AddEditClientWindowViewModel(Client selectedClient)
+
+        public Client currentClient;
+
+        internal Action Close;
+        public AddEditClientWindowViewModel() 
+        {
+            Pets = DataWorker.GetAllPets();
+        }
+        public AddEditClientWindowViewModel(Client selectedClient)
             {
                 if (selectedClient != null)
                 {
+                    Pets = DataWorker.GetAllPets();
                     currentClient = selectedClient;
 
                     FullName = currentClient.FullName;
@@ -39,10 +47,8 @@ namespace MVVM_Pet_2.ViewModel
                     Address = currentClient.Address;
                     Info = currentClient.Info;
                     PetId = currentClient.PetId;
-                    Pets = currentClient.Pets;
                 }
-            }
-
+        }
 
 
 
@@ -54,7 +60,8 @@ namespace MVVM_Pet_2.ViewModel
                 return createClientCommand ?? new RelayCommand(obj =>
                 {
                     string resultStr = "";
-                    resultStr = DataWorker.CreateClient(FullName, Phone, Email, Address, Info, PetId, Pets);
+                    PetId = selectedPet.Id;
+                    resultStr = DataWorker.CreateClient(FullName, Phone, Email, Address, Info, PetId);
 
                     DataWorker.ShowMessage(resultStr);
                     Close();
@@ -72,10 +79,21 @@ namespace MVVM_Pet_2.ViewModel
                 {
                     string resultStr = "";
 
-                    resultStr = DataWorker.EditClient(currentClient, FullName, Phone, Email, Address, Info, PetId, Pets);
-                    DataWorker.ShowMessage(resultStr);
-
-                    Close();
+                    while (resultStr == "")
+                    {
+                        try
+                        {
+                            PetId = selectedPet.Id;
+                            resultStr = DataWorker.EditClient(currentClient, FullName, Phone, Email, Address, Info, PetId, Pets);
+                            DataWorker.ShowMessage(resultStr);
+                            Close();
+                        }
+                        catch
+                        {
+                            DataWorker.ShowMessage("Призначте клієнту вихованця! Поле ID");
+                            break;
+                        }
+                    }
                 });
             }
         }

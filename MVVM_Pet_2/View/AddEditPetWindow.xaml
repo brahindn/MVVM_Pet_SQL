@@ -33,8 +33,8 @@
             <TextBlock Text="Тип"/>
             <TextBlock Text="Дата народження"/>
             <TextBlock Text="Вік"/>
+            <TextBlock Text="Порода"/>
             <TextBlock Text="Колір"/>
-            <TextBlock Text="Клієнт"/>
             <TextBlock Text="Доп. інформация"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="5">
@@ -45,7 +45,6 @@
             <TextBox Text="{Binding PetAge}"/>
             <TextBox Text="{Binding PetBreed}"/>
             <TextBox Text="{Binding PetColor}"/>
-            <TextBox Text="{Binding PetClient}"/>
             <TextBox Text="{Binding PetInfo}" Style="{x:Null}" Margin="5" Width="260" HorizontalAlignment="Left" Height="100"/>
         </StackPanel>
         <Canvas Grid.Column="1">

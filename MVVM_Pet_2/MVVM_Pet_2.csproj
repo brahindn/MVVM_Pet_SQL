@@ -183,6 +183,14 @@
     <Compile Include="Migrations\20230406202024_Initial.designer.cs">
       <DependentUpon>20230406202024_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230513174524_newDB.cs" />
+    <Compile Include="Migrations\20230513174524_newDB.designer.cs">
+      <DependentUpon>20230513174524_newDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230513175138_newDB_1.cs" />
+    <Compile Include="Migrations\20230513175138_newDB_1.designer.cs">
+      <DependentUpon>20230513175138_newDB_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\VetClinic_DB_MsSQLContextModelSnapshot.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\DataWorker.cs" />

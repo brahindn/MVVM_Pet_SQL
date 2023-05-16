@@ -4,14 +4,16 @@ using MVVM_Pet_2;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MVVM_Pet_2.Migrations
 {
     [DbContext(typeof(VetClinic_DB_MsSQLContext))]
-    partial class VetClinic_DB_MsSQLContextModelSnapshot : ModelSnapshot
+    [Migration("20230513175138_newDB_1")]
+    partial class newDB_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

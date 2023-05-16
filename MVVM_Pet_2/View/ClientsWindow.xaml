@@ -42,13 +42,13 @@
                   ItemsSource="{Binding AllClients, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="auto"/>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="35"/>
                     <GridViewColumn Header="ПІБ" DisplayMemberBinding="{Binding Path=FullName}" Width="auto"/>
                     <GridViewColumn Header="№ телефона" DisplayMemberBinding="{Binding Path=Phone}" Width="auto"/>
                     <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" Width="auto"/>
                     <GridViewColumn Header="Адреса" DisplayMemberBinding="{Binding Path=Address}" Width="200"/>
-                    <GridViewColumn Header="PetId" DisplayMemberBinding="{Binding Path=PetId}" Width="auto"/>
-                    <GridViewColumn Header="Доп.інформація" DisplayMemberBinding="{Binding Path=Info}" Width="300"/>
+                    <GridViewColumn Header="PetId" DisplayMemberBinding="{Binding Path=PetId}" Width="35"/>
+                    <GridViewColumn Header="Доп.інформація" DisplayMemberBinding="{Binding Path=Info}" Width="250"/>
                 </GridView>
             </ListView.View>
         </ListView>

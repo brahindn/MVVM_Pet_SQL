@@ -18,7 +18,7 @@ namespace MVVM_Pet_2.Models
     public static class DataWorker
     {
         #region MethodsForPet
-        public static string CreatePet(string passport, string name, string type, DateTime dateOfBirth, int age, string breed, string color, string info, Client client)
+        public static string CreatePet(string passport, string name, string type, DateTime dateOfBirth, int age, string breed, string color, string info)
         {
             string result = "Уже существует";
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
@@ -35,8 +35,7 @@ namespace MVVM_Pet_2.Models
                         Age = age,
                         Breed = breed,
                         Color = color,
-                        Info = info,
-                        Client = client
+                        Info = info
                     };
                     db.Pets.Add(pet);
                     db.SaveChanges();
@@ -68,7 +67,7 @@ namespace MVVM_Pet_2.Models
         }
 
 
-        public static string EditPet(Pet oldPet, string passport, string name, string type, DateTime dateOfBirth, int age, string breed, string color, string info, Client client)
+        public static string EditPet(Pet oldPet, string passport, string name, string type, DateTime dateOfBirth, int age, string breed, string color, string info)
         {
             string result = "Питомец не найден. Редактирование не выполнено.";
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
@@ -85,7 +84,6 @@ namespace MVVM_Pet_2.Models
                     pet.Breed = breed;
                     pet.Color = color;
                     pet.Info = info;
-                    pet.Client = client;
 
                     db.SaveChanges();
 
@@ -130,7 +128,7 @@ namespace MVVM_Pet_2.Models
         #endregion
 
         #region MethodsForClient
-        public static string CreateClient(string name, string phone, string email, string address, string info, int petId, List<Pet> pets)
+        public static string CreateClient(string name, string phone, string email, string address, string info, int petId)
         {
             string result = "Уже существует";
             using (VetClinic_DB_MsSQLContext db = new VetClinic_DB_MsSQLContext())
@@ -146,7 +144,6 @@ namespace MVVM_Pet_2.Models
                         Address = address,
                         Info = info,
                         PetId = petId,
-                        Pets = pets
                     };
                     db.Clients.Add(client);
                     db.SaveChanges();
