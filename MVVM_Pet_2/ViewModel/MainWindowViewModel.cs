@@ -21,9 +21,11 @@ namespace MVVM_Pet_2.ViewModel
         {
             buttonPetsIsEnabled = false;
             buttonClientsIsEnabled = false;
+            Authorization = false;
         }
 
         #region FIELDS
+        public bool Authorization { get; set; }
 
         private bool buttonPetsIsEnabled;
         public bool ButtonPetsIsEnabled
@@ -95,10 +97,7 @@ namespace MVVM_Pet_2.ViewModel
             {
                 ButtonPetsIsEnabled = true;
                 ButtonClientsIsEnabled = true;
-
-                str = "Вхід виконано";
-
-                DataWorker.ShowMessage(str);
+                Authorization = true;
             }
             else
             {
